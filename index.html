@@ -16,7 +16,6 @@
   <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>		<!-- FOR BOOTSTRAP -->
   <script src="js/product.js" charset="utf-8"></script>
   <script type="text/javascript">
-
           function loadData(){
               var products = $.ajax({url:"https://gist.githubusercontent.com/super1212/d0a3131282534ebe60b581b8a7f7be1f/raw/f0cef18f3e85b8b13f5e5b4e3985eae7d4ecfad1/products.json",async:false});
               if(products != null && products != "undefined"){
@@ -41,7 +40,6 @@
               }
               setCartData();
           }
-
   				function doAddToCart(){
   						addToCart(pObject);
   				}
@@ -99,5 +97,4 @@
     </div>
   </footer>
 </body>
-
 </html>
