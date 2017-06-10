@@ -95,6 +95,9 @@
 						loadImages();
 						loadProducts();
 				}
+				function doAddToCart(){
+						addToCart(pObject);
+				}
 		</script>
 	</head>
 	<body class="" onload="loadData()">
@@ -117,7 +120,12 @@
 	          <li><a href="product.html">Books</a></li>
 	          <li><a href="membership.html">Signup</a></li>
 	          <li><a href="about.html">About</a></li>
-	          <li><a href="#" onClick="displayCart()">Basket</a></li>
+						<li onload="showCartNum()">
+								<a href="shoppingCart.html">
+									<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+									<span id="cartNum">(0)</span>
+								</a>
+						</li>
 	        </ul>
 	      </div>
 	      <!-- /.navbar-collapse -->

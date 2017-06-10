@@ -1,19 +1,13 @@
 
 // /**
-// * Product onclick function
-// *／
-function doOnclick(id){
-  window.location.href =  "productDetail.html?="+id;
-}
-
-// /**
 // *@desc: Create the html code of every product
 // *@param: item, json object
 // *@return: return the html code of the product.
 // *／
 function createItem(item){
     //create new elements
-    var strHtml = "<div class='event_div' id='" + item.id + "' onclick=doOnclick('"+item.id+"')>";
+    var strHtml = "<div class='event_div' id='" + item.id + "'>";
+    strHtml += "<a href=\"productDetail.html?="+item.id+"\">";
     strHtml += "<div class='event_div_header'>";
     strHtml +=  "<img src='images/books/"+item.id+".jpg'>";
     strHtml +=  "</div>";
@@ -23,7 +17,7 @@ function createItem(item){
     strHtml +=     "<p><b>Category</b>: "+item.category+"</p>";
     strHtml +=    "</div>";
     strHtml +=    "<div class='event_text_content'><b>Price</b>: $" + item.price+ "</div>";
-    strHtml += "</div></div>";
+    strHtml += "</div></a></div>";
     return strHtml;
 }
 //
@@ -36,7 +30,7 @@ function loadFilter(categoryCache){
     var strHtml = "<h3>Filters</h3>";
     strHtml += "<br>";
     for (var key in categoryCache){
-      strHtml += "<a href=\"productDetail.html?='"+key+"'\">"+ key+"("+categoryCache[key]+")</a><hr>"
+      strHtml += "<a  onclick=filter('"+key+"')>"+ key+"("+categoryCache[key]+")</a><hr>"
     }
     return strHtml;
 }
@@ -95,6 +89,7 @@ function addToCart(productItem){
         alert(JSON.stringify(myPro))
         myValue.push(myPro);
     }
-    alert(JSON.stringify(myValue));
+    console.log(JSON.stringify(myValue));
     $.cookie("bookstore", JSON.stringify(myValue));
+    $(".cartNum").html("("+ myValue.length +")");
 }
