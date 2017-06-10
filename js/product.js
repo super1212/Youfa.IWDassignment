@@ -96,7 +96,7 @@ function addToCart(productItem){
         myValue.push(myPro);
     }
     alert(JSON.stringify(myValue));
-    // $.cookie("bookstore", JSON.stringify(myValue));
+    $.cookie("bookstore", JSON.stringify(myValue));
 
-    $.cookie('bookstore', 'www');
+    // $.cookie('bookstore', 'www');
 }
