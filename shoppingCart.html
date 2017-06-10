@@ -46,8 +46,9 @@
             });
             $.cookie("bookstore", JSON.stringify(newValue));
         }
+        setCartData();
     }
-    
+
     $(document).ready(function(){
       var myValue = $.cookie('bookstore');
       // var myValue = '[{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98},{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98}]';
