@@ -211,7 +211,7 @@
 				<label class="control-label" for="membership_form_inputBirthday">Date of birth:</label>
 				<!--<input type="text" class="form-control" id="membership_form_inputBirthday" placeholder="yyyy/mm/dd">-->
 				<br>
-				<select class="form-control" style="display: inline-block; width: 33%;" id="membership_form_inputBirthday_year" onchange="updateDays()">
+				<select class="form-control" style="display: inline-block; width: 33%;" id="membership_form_inputBirthday_year" onchange="updateMonths()">
 				</select>
 				<select class="form-control" style="display: inline-block; width: 32%;" id="membership_form_inputBirthday_month" onchange="updateDays()">
 				</select>
@@ -227,8 +227,10 @@
 
 					function createYears()
 					{
+						var myDate = new Date();
+						var maxYear = myDate.getFullYear();
 
-						for(var i = 1900; i <= 2100; i++)
+						for(var i = 1900; i <= maxYear; i++)
 						{
 							yearsObj.options.add(new Option(i, i));
 						}
@@ -236,14 +238,28 @@
 						yearsObj.selectedIndex = 1990 - 1900;
 					}
 
-					function createMonths()
+					function updateMonths()
 					{
-						for(var i = 0; i < 12; i++)
+						monthsObj.options.length = 0;
+						var myDate = new Date();
+						var maxYear = myDate.getFullYear();
+						var maxMonth = myDate.getMonth() + 1;
+
+						var maxMonthForCreating = 12;
+						var currentYearObj = yearsObj.options[yearsObj.selectedIndex];
+						if(currentYearObj.value >= maxYear)
+						{
+							maxMonthForCreating = maxMonth;
+						}
+
+						for(var i = 0; i < maxMonthForCreating; i++)
 						{
 							monthsObj.options.add(new Option(monthsArray[i], i+1));
 						}
 
 						monthsObj.selectedIndex = 0;
+
+						updateDays();
 					}
 
 
@@ -253,7 +269,17 @@
 						var currentYearObj = yearsObj.options[yearsObj.selectedIndex];
 						var currentMonthObj = monthsObj.options[monthsObj.selectedIndex];
 						var countOfDays = 0;
-						if(currentMonthObj.value == 1 || currentMonthObj.value == 3 || currentMonthObj.value == 5 || currentMonthObj.value == 7 || currentMonthObj.value == 8 || currentMonthObj.value == 10 || currentMonthObj.value == 12)
+
+						var myDate = new Date();
+						var maxYear = myDate.getFullYear();
+						var maxMonth = myDate.getMonth() + 1;
+						var maxDay = myDate.getDate();
+
+						if(currentYearObj.value >= maxYear && currentMonthObj.value >= maxMonth)
+						{
+							countOfDays = myDate.getDate();
+						}
+						else if(currentMonthObj.value == 1 || currentMonthObj.value == 3 || currentMonthObj.value == 5 || currentMonthObj.value == 7 || currentMonthObj.value == 8 || currentMonthObj.value == 10 || currentMonthObj.value == 12)
 						{
 							countOfDays = 31;
 						}
@@ -284,8 +310,7 @@
 					}
 
 					createYears();
-					createMonths();
-					updateDays();
+					updateMonths();
 
 				</script>
 			</div>
