@@ -36,7 +36,7 @@ function loadFilter(categoryCache){
     var strHtml = "<h3>Filters</h3>";
     strHtml += "<br>";
     for (var key in categoryCache){
-      strHtml += "<a href='productDetail.html?="+key+"' >"+ key+"("+categoryCache[key]+")</a><hr>"
+      strHtml += "<a href=\"productDetail.html?='"+key+"'\">"+ key+"("+categoryCache[key]+")</a><hr>"
     }
     return strHtml;
 }
@@ -97,6 +97,4 @@ function addToCart(productItem){
     }
     alert(JSON.stringify(myValue));
     $.cookie("bookstore", JSON.stringify(myValue));
-
-    // $.cookie('bookstore', 'www');
 }
