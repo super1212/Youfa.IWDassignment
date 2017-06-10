@@ -38,10 +38,16 @@
         setCartData();
         var myValue = $.cookie('bookstore');
         var isNew = 0;
+        var newValue = [];
     		if(myValue != null){
     				myValue = $.parseJSON(myValue);
-            myValue = _.filter(myValue,{id: obj.id});
-            $.cookie("bookstore", JSON.stringify(myValue));
+            $.each(myValue, function(index, item){
+                if(item.id != obj.id){
+                    newValue.push(item);
+                }
+            }
+            // myValue = _.filter(myValue,{id: obj.id});
+            $.cookie("bookstore", JSON.stringify(newValue));
         }
     }
     $(document).ready(function(){
