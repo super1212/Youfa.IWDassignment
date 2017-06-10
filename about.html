@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auckland City Books - Home</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <!-- FOR BOOTSTRAP -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+
+</head>
+<body class="">
+  <div class="heading text-center">
+    <q class="quote ">A book is a dream that you hold in your hand</q>
+    <cite>Neil Gaiman</cite>
+
+  </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="index.html">Auckland City Books</a> </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Books</a></li>
+          <li><a href="membership.html">Signup</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#" onClick="displayCart()">Basket</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div class="container text-center well">
+    <h1>About us</h1>
+
+    <p class="lead">Auckland City Books was established in 1971 and our book shops are in every little town in New Zealand. We stock books on a wide variety of subjects including Art, Drama, Humour, Music, Photography, Biography, Sports, Business, Careers, Investing, Cooking and Food, Education, Fiction and Poetry, Travel, Health and Self-Help, Medicine, Nutrition, Psychology, Recovery and Addiction, Relationships, Gardening, Interior Design, Sustainable Living, Humanities. However, with the popularity of internet, the habits of book reading and buying are rapidly decreasing. We therefore change our strategy and want to make our books available on the World Wide Web so that we don’t have to have all the physical book shops. We just want to run the business from a warehouse.
+    </p>
+    <div class = "row">
+      <div class="col-lg-6 col-md-6 col-xs-12 pull-right">
+        <div>
+         <p><b>Phone: </b>+64 9 00 7852</p>
+         <p><b>Phone: </b>+64 3 24 8888</p>
+         <p><b>Email: </b>info@bookstore.co.nz</p>
+         <p><b>Address: </b>21 Queen St, Auckland, NZ</p>
+         <span>
+     							<a class="facebook" href="http://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+     							<a class="twitter" href="http://twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+     							<a class="instagram" href="http://www.blurb.com/instagram-facebook-books"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+     						</span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-xs-12 map"><div id="map" style="width:100%;height:400px;"></div>
+     <a href="https://goo.gl/maps/NSmU2p2wCYA2">View larger map</a> </div>
+    </div>
+  </div>
+  <footer class="footer">
+      <div class="row">
+        <div class="well col-xs-12">
+          <p class="text-center">Copyright © Auckland City Books</p>
+        </div>
+    </div>
+  </footer>
+  <script src="js/about.js">
+  // </script>
+  <!-- Book store custom operations scripts -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-EPKftyhL-TTmPHWEk3mjDpRFXQacPMA&callback=initMap"
+ type="text/javascript"></script>
+</body>
+</html>
