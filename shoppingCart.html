@@ -45,7 +45,7 @@
                 if(item.id != obj.id){
                     newValue.push(item);
                 }
-            }
+            });
             // myValue = _.filter(myValue,{id: obj.id});
             $.cookie("bookstore", JSON.stringify(newValue));
         }
