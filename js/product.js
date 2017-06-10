@@ -4,11 +4,13 @@
 function doOnclick(id){
   var myItems = window.location.href.split("/");
   var myLink = "";
-  $.each(myItems, function(index, itme){
+  alert(myItems)
+  $.each(myItems, function(index, item){
     if(index < myItems.length-1){
       myLink += "/" + item;
     }
   });
+  myLink = myLink.substr(1,myLink.length);
   window.location.href =  myLink + "/productDetail.html?="+id;
 }
 // /**
