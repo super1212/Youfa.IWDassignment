@@ -10,7 +10,7 @@ function doOnclick(id){
       myLink += "/" + item;
     }
   });
-  alert(myLinks)
+  alert(myLink)
   myLink = myLink.substr(1,myLink.length);
   window.location.href =  myLink + "/productDetail.html?="+id;
 }
