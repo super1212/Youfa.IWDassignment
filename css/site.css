@@ -1,0 +1,65 @@
+/* CSS Document */
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000;
+	height: auto;
+}
+
+.background {
+
+	background-color: #FFF;
+	background-image:url(../images/main_book.jpg);
+	/*background-clip: padding-box;*/
+	background-repeat: no-repeat;
+	background-position: top;
+	background-attachment: fixed;
+
+}
+
+h6 {
+	font-size:7px;
+}
+
+
+.heading{
+	height:100px;
+	padding-top: 3%;
+	background-color: black;
+	font: italic 20px Georgia;
+	color: #D9CA99;
+}
+.contact{
+	/*padding: 15px;*/
+
+	font-family: 'Mogra', cursive;
+	font-size: 15px;
+
+  /*border: 1px solid black;*/
+
+
+
+}
+.aboutUs{
+	/*font-family: 'Mogra', cursive;*/
+	font: italic 20px Georgia;
+	font-weight: bold;
+	font-size: 35px;
+
+
+}
+.description{
+	font-family: 'Mogra', cursive;
+	font-size: 15px;
+
+}
+
+.fa{
+color:black ;
+font-size:25px;
+margin-left: 5px;
+
+}
+i:hover{
+	color: #D9CA99;
+}

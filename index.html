@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auckland City Books - Home</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <!-- FOR BOOTSTRAP -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/product.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+          function loadData(){
+              var products = $.ajax({url:"https://gist.githubusercontent.com/super1212/d0a3131282534ebe60b581b8a7f7be1f/raw/f0cef18f3e85b8b13f5e5b4e3985eae7d4ecfad1/products.json",async:false});
+              if(products != null && products != "undefined"){
+                  products = $.parseJSON(products.responseText);
+                  var featuredbooks = $("#featuredbooks");
+                  var bestsellers = $("#bestsellers");
+
+                  var bestSellerHtml = "";
+                  var featureHtml = "";
+                  $.each(products, function(infoIndex, item){
+                    // console.log(item);
+                    if(item.onsale == '0'){
+                        bestSellerHtml += createItem(item);
+                    }
+                    if(item.popularity == 'high'){
+                        featureHtml += createItem(item);
+                    }
+
+                  });
+                  featuredbooks.html(featureHtml);
+                  bestsellers.html(bestSellerHtml)
+              }
+          }
+  </script>
+</head>
+<body class="" onLoad="loadData()">
+  <!-- <div class="container-fluid"> -->
+  <div class="heading text-center">
+    <q class="quote ">A book is a dream that you hold in your hand</q>
+    <cite>Neil Gaiman</cite>
+  </div>
+  <!-- </div> -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="index.html">Auckland City Books</a> </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Books</a></li>
+          <li><a href="membership.html">Signup</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#" onClick="displayCart()">Basket</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading"> <h3 class="panel-title">Featured books</h3> </div>
+      <div class="panel-body" id="featuredbooks"></div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"> <h3 class="panel-title">The deal of the day</h3> </div>
+      <div class="panel-body" id="bestsellers"></div>
+    </div>
+  </div>
+  <footer class="footer ">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="well col-xs-12">
+          <p class="text-center">Copyright © Auckland City Books</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
