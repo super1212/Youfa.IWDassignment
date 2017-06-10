@@ -4,7 +4,6 @@
 function doOnclick(id){
   var myItems = window.location.href.split("/");
   var myLink = "";
-  alert(myItems)
   $.each(myItems, function(index, item){
     if(index < myItems.length-1){
       myLink += "/" + item;
