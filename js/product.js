@@ -1,4 +1,16 @@
-
+// /**
+// * Product onclick function
+// *／
+function doOnclick(id){
+  var myItems = window.location.href.split("/");
+  var myLink = "";
+  $.each(myItems, function(index, itme){
+    if(index < myItems.length-1){
+      myLink += "/" + item;
+    }
+  });
+  window.location.href =  myLink + "/productDetail.html?="+id;
+}
 // /**
 // *@desc: Create the html code of every product
 // *@param: item, json object
@@ -6,8 +18,7 @@
 // *／
 function createItem(item){
     //create new elements
-    var strHtml = "<div class='event_div' id='" + item.id + "'>";
-    strHtml += "<a href=\"productDetail.html?="+item.id+"\">";
+    var strHtml = "<div class='event_div' id='" + item.id + "' onclick=doOnclick('"+item.id+"')>";
     strHtml += "<div class='event_div_header'>";
     strHtml +=  "<img src='images/books/"+item.id+".jpg'>";
     strHtml +=  "</div>";
