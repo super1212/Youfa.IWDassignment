@@ -17,7 +17,8 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<!-- FOR CHECK FORM-->
+    <script src="js/product.js" charset="utf-8"></script>
+<!-- FOR CHECK FORM-->
     <script type="text/javascript">
 
 
@@ -34,8 +35,8 @@
         calTotalPrice();
     }
     $(document).ready(function(){
-      // var myValue = $.cookie('bookstore');
-      var myValue = '[{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98},{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98}]';
+      var myValue = $.cookie('bookstore');
+      // var myValue = '[{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98},{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98}]';
       var isNew = 0;
       if(myValue != null){
           myValue = $.parseJSON(myValue);
@@ -73,6 +74,11 @@
           calTotalPrice();
       });
   })
+  function doAddToCart(){
+      addToCart(pObject);
+
+      // showCartNum();
+  }
     </script>
 	</head>
 	<body  class="">
@@ -96,7 +102,12 @@
               <li><a href="product.html">Books</a></li>
               <li><a href="membership.html">Signup</a></li>
               <li><a href="about.html">About</a></li>
-              <li><a href="#" onClick="displayCart()">Basket</a></li>
+  						<li onload="showCartNum()">
+  								<a href="shoppingCart.html">
+  									<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+  									<span id="cartNum">(0)</span>
+  								</a>
+  						</li>
             </ul>
           </div>
           <!-- /.navbar-collapse -->

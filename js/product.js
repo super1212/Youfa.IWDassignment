@@ -104,5 +104,5 @@ function addToCart(productItem){
     }
     console.log(JSON.stringify(myValue));
     $.cookie("bookstore", JSON.stringify(myValue));
-    $(".cartNum").html("("+ myValue.length +")");
+    $(".cartNum").html('('+ myValue.length +')');
 }
