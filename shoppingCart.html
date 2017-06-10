@@ -22,8 +22,6 @@
     <script src="js/product.js" charset="utf-8"></script>
 <!-- FOR CHECK FORM-->
     <script type="text/javascript">
-
-
     function calTotalPrice(){
         var trObj = $("#myTbody").children("tr");
         var totalPriceNum = 0;
@@ -49,6 +47,7 @@
             $.cookie("bookstore", JSON.stringify(newValue));
         }
     }
+    
     $(document).ready(function(){
       var myValue = $.cookie('bookstore');
       // var myValue = '[{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98},{"id":"00003","title":"All Star Superman","quantity":3,"price":16.98}]';
