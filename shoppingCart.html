@@ -33,6 +33,7 @@
     function del(obj){
         $(obj).parent().parent().remove();
         calTotalPrice();
+        setCartData();
     }
     $(document).ready(function(){
       var myValue = $.cookie('bookstore');
@@ -81,7 +82,7 @@
   }
     </script>
 	</head>
-	<body  class="">
+	<body  class="" onload="setCartData()">
 
       <!-- <div class="container-fluid"> -->
       <div class="heading text-center">

@@ -79,7 +79,6 @@ function showCartNum(){
 
 function addToCart(productItem){
 		var myValue = $.cookie('bookstore');
-    alert(myValue);
     var isNew = 0;
 		if(myValue != null){
 				myValue = $.parseJSON(myValue);
@@ -104,5 +103,14 @@ function addToCart(productItem){
     }
     console.log(JSON.stringify(myValue));
     $.cookie("bookstore", JSON.stringify(myValue));
-    $(".cartNum").html('('+ myValue.length +')');
+    $("#cartNum").html('('+ myValue.length +')');
+}
+function setCartData(){
+  var myValue = $.cookie('bookstore');
+  var num = 0;
+  if(myValue != null){
+      myValue = $.parseJSON(myValue);
+      num = myValue.length;
+  }
+  $("#cartNum").html('('+ num +')');
 }
