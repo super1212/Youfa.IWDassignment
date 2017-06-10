@@ -9,7 +9,6 @@ function doOnclick(id){
       myLink += "/" + item;
     }
   });
-  alert(myLink)
   myLink = myLink.substr(1,myLink.length);
   window.location.href =  myLink + "/productDetail.html?="+id;
 }
@@ -95,13 +94,11 @@ function addToCart(productItem){
         var myPro = {
           "id": productItem.id,
           "title": productItem.title,
-          "quantity": 0,
+          "quantity": 1,
           "price": productItem.price
         }
-        alert(JSON.stringify(myPro))
         myValue.push(myPro);
     }
-    console.log(JSON.stringify(myValue));
     $.cookie("bookstore", JSON.stringify(myValue));
     $("#cartNum").html('('+ myValue.length +')');
 }

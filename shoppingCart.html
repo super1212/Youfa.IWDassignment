@@ -18,6 +18,7 @@
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>		<!-- FOR BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>
     <script src="js/product.js" charset="utf-8"></script>
 <!-- FOR CHECK FORM-->
     <script type="text/javascript">
@@ -35,6 +36,13 @@
         $(obj).parent().parent().remove();
         calTotalPrice();
         setCartData();
+        var myValue = $.cookie('bookstore');
+        var isNew = 0;
+    		if(myValue != null){
+    				myValue = $.parseJSON(myValue);
+            myValue = _.filter(myValue,{id: obj.id});
+            $.cookie("bookstore", JSON.stringify(myValue));
+        }
     }
     $(document).ready(function(){
       var myValue = $.cookie('bookstore');
@@ -54,7 +62,7 @@
                   "<em class='plus'>+</em>" +
                 "</td>" +
                 "<td>"+ item.price + "</td>" +
-                "<td><button type='button' class='close' data-dismiss='modal' aria-hidden='true' onclick='del(this)''>&times;</button></td>" +
+                "<td><button type='button' class='close' data-dismiss='modal' id= '"+ item.id +"'aria-hidden='true' onclick='del(this)''>&times;</button></td>" +
               "</tr>"
           });
           tableObj.append(tableStr);
