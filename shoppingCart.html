@@ -26,14 +26,13 @@
 			var myValue = [];
 			var trObj = $("#myTbody").children("tr");
 			$.each(trObj, function(index, item){
-					totalPriceNum += item.cells[3].innerText * item.cells[2].childNodes[1].value;
 					var myPro = {
 	          "id": item.cells[4].childNodes[0].id,
 	          "title": item.cells[1].innerText,
 	          "quantity": item.cells[2].childNodes[1].value,
 	          "price": item.cells[3].innerText
 	        }
-					alert(myPro)
+					alert(myPro);
 	        myValue.push(myPro);
 			});
 	    $.cookie("bookstore", JSON.stringify(myValue));
