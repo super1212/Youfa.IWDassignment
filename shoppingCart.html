@@ -26,14 +26,12 @@
 			var myValue = [];
 			var trObj = $("#myTbody").children("tr");
 			$.each(trObj, function(index, item){
-				alert(12312)
 					var myPro = {
 	          "id": item.cells[4].childNodes[0].id,
 	          "title": item.cells[1].innerText,
 	          "quantity": item.cells[2].childNodes[1].value,
 	          "price": item.cells[3].innerText
 	        }
-					alert(myPro);
 	        myValue.push(myPro);
 			});
 	    $.cookie("bookstore", JSON.stringify(myValue));
