@@ -22,6 +22,24 @@
     <script src="js/product.js" charset="utf-8"></script>
 <!-- FOR CHECK FORM-->
     <script type="text/javascript">
+		function addToCookie(){
+			var myValue = [];
+			var trObj = $("#myTbody").children("tr");
+			$.each(trObj, function(index, item){
+					totalPriceNum += item.cells[3].innerText * item.cells[2].childNodes[1].value;
+					var myPro = {
+	          "id": item.cells[4].childNodes[0].id,
+	          "title": item.cells[1].innerText,
+	          "quantity": item.cells[2].childNodes[1].value,
+	          "price": item.cells[3].innerText
+	        }
+					alert(myPro)
+	        myValue.push(myPro);
+			});
+	    $.cookie("bookstore", JSON.stringify(myValue));
+		}
+
+
     function calTotalPrice(){
         var trObj = $("#myTbody").children("tr");
         var totalPriceNum = 0;
@@ -79,6 +97,7 @@
           if(num==0){ return;}
           $(this).prev().val(num);
           calTotalPrice();
+					addToCookie();
       });
 
       $(".minus").click(function(){
@@ -87,6 +106,7 @@
           if(num==0){ return}
           $(this).next().val(num);
           calTotalPrice();
+					addToCookie();
       });
   })
   function doAddToCart(){
